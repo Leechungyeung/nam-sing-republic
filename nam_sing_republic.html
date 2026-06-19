@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>南星共和國 (Nam Sing Republic)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans TC',sans-serif;background:#f0f4fa;min-height:100vh;padding:2rem 1rem;}
+.w{max-width:700px;margin:0 auto;padding:0 0 2rem;}
+
+.hero{background:#0d1b2a;border-radius:20px;padding:2.5rem 2rem 2rem;text-align:center;margin-bottom:1.5rem;position:relative;overflow:hidden;border:1px solid #2a3a5a;}
+.hero-stars{position:absolute;top:0;left:0;right:0;bottom:0;background-image:
+  radial-gradient(1px 1px at 8% 15%,rgba(255,255,255,.8) 0%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 22% 8%,rgba(255,255,255,.6) 0%,transparent 100%),
+  radial-gradient(1px 1px at 38% 22%,rgba(255,255,255,.7) 0%,transparent 100%),
+  radial-gradient(2px 2px at 55% 5%,rgba(255,255,255,.9) 0%,transparent 100%),
+  radial-gradient(1px 1px at 70% 18%,rgba(255,255,255,.5) 0%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 85% 12%,rgba(255,255,255,.7) 0%,transparent 100%),
+  radial-gradient(1px 1px at 92% 35%,rgba(255,255,255,.6) 0%,transparent 100%),
+  radial-gradient(1px 1px at 12% 55%,rgba(255,255,255,.4) 0%,transparent 100%),
+  radial-gradient(2px 2px at 48% 45%,rgba(255,255,255,.7) 0%,transparent 100%),
+  radial-gradient(1px 1px at 78% 60%,rgba(255,255,255,.5) 0%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 30% 75%,rgba(255,255,255,.4) 0%,transparent 100%),
+  radial-gradient(1px 1px at 65% 80%,rgba(255,255,255,.6) 0%,transparent 100%);
+  pointer-events:none;}
+.hero-inner{position:relative;z-index:1;}
+.hero-flag{font-size:48px;display:block;margin-bottom:.6rem;animation:float 3.5s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.hero h1{font-size:22px;font-weight:700;color:#f0d070;letter-spacing:3px;margin-bottom:3px;}
+.hero-sub{font-size:12px;color:#5070a0;margin-bottom:1.2rem;font-style:italic;}
+.hero-pills{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;}
+.pill{background:rgba(255,255,255,.06);border:1px solid rgba(200,170,70,.35);border-radius:20px;padding:4px 13px;font-size:11px;color:#c8b060;}
+
+.nav{display:flex;gap:5px;margin-bottom:1.2rem;flex-wrap:wrap;}
+.tb{flex:1;min-width:70px;padding:8px 4px;border-radius:11px;border:1.5px solid #c8d8f0;background:#f5f8ff;color:#2a3a6a;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;text-align:center;font-family:'Noto Sans TC',sans-serif;}
+.tb:hover{background:#dceaf8;}
+.tb.active{background:#0d1b2a;color:#f0d070;border-color:#0d1b2a;}
+
+.sc{background:#fff;border-radius:16px;border:1.5px solid #d0dff0;padding:1.4rem;margin-bottom:1.2rem;display:none;}
+.sc.active{display:block;}
+.sc h2{font-size:16px;font-weight:700;color:#0d1b2a;margin-bottom:1rem;display:flex;align-items:center;gap:7px;}
+
+.ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:9px;margin-bottom:1rem;}
+.ii{background:#f4f8ff;border:1px solid #c0d0e8;border-radius:11px;padding:11px;text-align:center;}
+.ii .lb{font-size:10px;color:#4060a0;margin-bottom:3px;}
+.ii .vl{font-size:13px;font-weight:700;color:#0d1b2a;}
+.desc{font-size:13.5px;color:#1a2a4a;line-height:1.95;}
+
+.zone-grid{display:flex;flex-direction:column;gap:10px;}
+.zone-item{display:flex;gap:11px;align-items:flex-start;background:#f4f8ff;border:1px solid #c0d0e8;border-radius:12px;padding:13px;}
+.zone-tag{background:#0d1b2a;color:#f0d070;font-size:11px;font-weight:700;border-radius:7px;padding:3px 8px;white-space:nowrap;margin-top:1px;}
+.zone-body .zn{font-size:13.5px;font-weight:700;color:#0d1b2a;margin-bottom:3px;}
+.zone-body .zd{font-size:12.5px;color:#3050a0;line-height:1.65;}
+
+.tram-list{display:flex;flex-direction:column;gap:9px;}
+.tram-item{display:flex;gap:10px;align-items:flex-start;padding:11px 13px;border-radius:11px;border:1px solid #c0d0e8;}
+.tram-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;margin-top:1px;}
+.tram-body .tn{font-size:13.5px;font-weight:700;color:#0d1b2a;margin-bottom:2px;}
+.tram-body .td{font-size:12.5px;color:#3050a0;line-height:1.6;}
+.fare-box{background:#f4f8ff;border:1px solid #c0d0e8;border-radius:11px;padding:13px;margin-top:10px;}
+.fare-box h3{font-size:13px;font-weight:700;color:#0d1b2a;margin-bottom:8px;}
+.fare-row{display:flex;justify-content:space-between;font-size:12.5px;padding:4px 0;border-bottom:1px solid #e0e8f4;color:#1a2a4a;}
+.fare-row:last-child{border-bottom:none;}
+.fare-row .fp{font-weight:700;color:#0d1b2a;}
+
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:9px;}
+.cc{background:linear-gradient(135deg,#f0f5ff,#e8f0ff);border:1px solid #b8ccec;border-radius:13px;padding:13px 10px;text-align:center;}
+.cc .ci{font-size:24px;margin-bottom:5px;}
+.cc .cn{font-size:13px;font-weight:700;color:#0d1b2a;margin-bottom:3px;}
+.cc .cd{font-size:11.5px;color:#3050a0;line-height:1.5;}
+
+.tl{position:relative;padding-left:22px;}
+.tl::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#f0d070,#4070c0);border-radius:2px;}
+.tl-i{position:relative;margin-bottom:1.1rem;}
+.tl-i::before{content:'';position:absolute;left:-19px;top:5px;width:10px;height:10px;background:#0d1b2a;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 2px #4070c0;}
+.tl-y{font-size:11px;color:#5070b0;font-weight:700;margin-bottom:2px;}
+.tl-t{font-size:13.5px;font-weight:700;color:#0d1b2a;margin-bottom:2px;}
+.tl-d{font-size:12.5px;color:#3050a0;line-height:1.6;}
+
+.spirit{background:#0d1b2a;border-radius:14px;padding:1.4rem;margin-top:.8rem;}
+.spirit p{font-size:13px;color:#a0b8d8;line-height:2;margin-bottom:.6rem;}
+.spirit p:last-child{margin-bottom:0;}
+.spirit .hl{color:#f0d070;font-weight:500;}
+
+.mbti-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:1rem;}
+.mbti-item{background:#f4f8ff;border:1px solid #c0d0e8;border-radius:11px;padding:12px;}
+.mbti-letter{font-size:22px;font-weight:700;color:#0d1b2a;margin-bottom:3px;}
+.mbti-label{font-size:12px;color:#3050a0;line-height:1.5;}
+
+.footer{text-align:center;font-size:11.5px;color:#7090b0;padding-top:.5rem;line-height:1.8;}
+</style>
+</head>
+<body>
+<div class="w">
+
+<div class="hero">
+  <div class="hero-stars"></div>
+  <div class="hero-inner">
+    <span class="hero-flag">🌟</span>
+    <h1>Nam Sing Republic</h1>
+    <p class="hero-sub">骑楼下面的根，在澳洲北部热带阳光下重新生长的一朵花</p>
+    <div class="hero-pills">
+      <span class="pill">城邦國家</span>
+      <span class="pill">官方語言：粵語</span>
+      <span class="pill">貨幣：NSY</span>
+      <span class="pill">INTJ 建築師型</span>
+      <span class="pill">建造第 298 天</span>
+    </div>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="tb active" onclick="showTab('overview',this)">🗺️ 基本國情</button>
+  <button class="tb" onclick="showTab('city',this)">🏙️ 首都城區</button>
+  <button class="tb" onclick="showTab('transport',this)">🚃 交通體系</button>
+  <button class="tb" onclick="showTab('culture',this)">🥢 文化生活</button>
+  <button class="tb" onclick="showTab('history',this)">📅 建設年表</button>
+  <button class="tb" onclick="showTab('spirit',this)">🌿 南星精神</button>
+</div>
+
+<!-- 基本国情 -->
+<div class="sc active" id="tab-overview">
+  <h2>🗺️ 基本國情</h2>
+  <div class="ig">
+    <div class="ii"><div class="lb">正式國名</div><div class="vl">南星共和國</div></div>
+    <div class="ii"><div class="lb">英文國名</div><div class="vl">(Nam Sing Republic)</div></div>
+    <div class="ii"><div class="lb">性質</div><div class="vl">城邦國家</div></div>
+    <div class="ii"><div class="lb">現有人口</div><div class="vl">約 3 萬人</div></div>
+    <div class="ii"><div class="lb">規劃人口上限</div><div class="vl">50 萬人</div></div>
+    <div class="ii"><div class="lb">國土面積</div><div class="vl">7,443 km²</div></div>
+    <div class="ii"><div class="lb">位置</div><div class="vl">澳洲北部飛地</div></div>
+    <div class="ii"><div class="lb">官方語言</div><div class="vl">粵語（繁體）</div></div>
+    <div class="ii"><div class="lb">貨幣</div><div class="vl">南星元（NSY）</div></div>
+    <div class="ii"><div class="lb">最低時薪</div><div class="vl">120 NSY</div></div>
+    <div class="ii"><div class="lb">人均 GDP</div><div class="vl">48–72 萬 NSY</div></div>
+    <div class="ii"><div class="lb">行車方向</div><div class="vl">靠右行駛</div></div>
+  </div>
+  <p class="desc">南星共和國是一座位於澳洲北部的粵語城邦，國土面積約相當於十個新加坡，氣候為熱帶季風，地形涵蓋半島、湖泊、離島與沙質海岸。九成居民為廣東粵西裔，官方語言為粵語，繁體書寫。人均 GDP 對標瑞士、盧森堡與新加坡，屬全球前五富裕水準，貧富差距極小，高福利、高教育。</p>
+</div>
+
+<!-- 首都城区 -->
+<div class="sc" id="tab-city">
+  <h2>🏙️ 首都城區</h2>
+  <p class="desc" style="margin-bottom:1rem;">首都以「省城風範，小城清雅」為定位，致敬粵人治粵時期（1910–1930年代）廣東城市精神的海外重現，四種建築風格有機並存。</p>
+  <div class="zone-grid">
+    <div class="zone-item"><span class="zone-tag">Zone A</span><div class="zone-body"><div class="zn">中央商業主街</div><div class="zd">石板鋪地南北向主幹道，1911街沿線，電車主動脈，最熱鬧的商業核心（X≈105 Z≈126）</div></div></div>
+    <div class="zone-item"><span class="zone-tag">Zone B</span><div class="zone-body"><div class="zn">濱水禮儀廣場</div><div class="zd">綠焰雙塔，臨水階梯廣場，首都精神地標，夜間最具辨識度的城市名片（X≈123 Z≈222）</div></div></div>
+    <div class="zone-item"><span class="zone-tag">Zone C</span><div class="zone-body"><div class="zn">混合居住街區</div><div class="zd">二至三層聯排，產住混合，岭南騎樓為核心建築語言，米黃砂岩磚配木質陽台</div></div></div>
+    <div class="zone-item"><span class="zone-tag">Zone D</span><div class="zone-body"><div class="zn">現代機構區</div><div class="zd">白色現代建築，水平挑簷配木材格柵，政府或文化機構所在（X≈96 Z≈186）</div></div></div>
+    <div class="zone-item"><span class="zone-tag">Zone E</span><div class="zone-body"><div class="zn">舊城磚構街區</div><div class="zd">深紅磚牆配石灰石線腳，歷史感最強，旗樓紅磚四層樓為代表（X≈102 Z≈172）</div></div></div>
+    <div class="zone-item"><span class="zone-tag">Zone F</span><div class="zone-body"><div class="zn">濱水外圍組團</div><div class="zd">低密度獨棟，景觀界面，夜間景觀最佳建築群（X≈151 Z≈245）</div></div></div>
+    <div class="zone-item"><span class="zone-tag">蘋果島</span><div class="zone-body"><div class="zn">戰略留白離島</div><div class="zd">面積約 1 km²，電車3可達，首都最大戰略留白，等待合適時機開發</div></div></div>
+  </div>
+</div>
+
+<!-- 交通体系 -->
+<div class="sc" id="tab-transport">
+  <h2>🚃 交通體系</h2>
+  <p class="desc" style="margin-bottom:.9rem;">3萬人口配置3條運營電車線，全球幾乎無先例——嚴重超前於人口規模的頂級基建，參照盧森堡模式。</p>
+  <div class="tram-list">
+    <div class="tram-item" style="background:#f0f7ff;"><div class="tram-num" style="background:#1a5fa0;">1</div><div class="tram-body"><div class="tn">電車1：西城 ↔ 老城</div><div class="td">沿1911街多站停靠，全網客流最高主動脈，覆蓋商業核心</div></div></div>
+    <div class="tram-item" style="background:#f0fff5;"><div class="tram-num" style="background:#1a8050;">2</div><div class="tram-body"><div class="tn">電車2：老城 ↔ 遠東郊區</div><div class="td">少站直通，郊區通勤快線，未來銜接長途鐵路</div></div></div>
+    <div class="tram-item" style="background:#fff8f0;"><div class="tram-num" style="background:#a06010;">3</div><div class="tram-body"><div class="tn">電車3：老城西岸 ↔ 蘋果島</div><div class="td">戰略性預埋，現客流稀少，服務離島未來開發</div></div></div>
+    <div class="tram-item" style="background:#fdf4ff;border-style:dashed;"><div class="tram-num" style="background:#8040a0;">4</div><div class="tram-body"><div class="tn">電車4：西城 ↔ 宋康鎮（規劃中）</div><div class="td">跨城連接，建成後兩地勞動力市場將實質性打通</div></div></div>
+  </div>
+  <div class="fare-box">
+    <h3>💳 票價體系</h3>
+    <div class="fare-row"><span>電車單次</span><span class="fp">10 NSY</span></div>
+    <div class="fare-row"><span>跨城單次</span><span class="fp">20 NSY</span></div>
+    <div class="fare-row"><span>每日封頂</span><span class="fp">50 NSY</span></div>
+    <div class="fare-row"><span>跨市火車</span><span class="fp">30–50 NSY</span></div>
+    <div class="fare-row"><span>學生/長者/殘障</span><span class="fp">半價優惠</span></div>
+    <div class="fare-row"><span>逃票罰款</span><span class="fp">500 NSY / 次</span></div>
+  </div>
+</div>
+
+<!-- 文化生活 -->
+<div class="sc" id="tab-culture">
+  <h2>🥢 文化生活</h2>
+  <div class="cg" style="margin-bottom:1rem;">
+    <div class="cc"><div class="ci">🐉</div><div class="cn">逆水龍舟</div><div class="cd">最重要的集體儀式，傳承粵西阳江文化根脈，逆水而上是南星男性精神的物質化</div></div>
+    <div class="cc"><div class="ci">🏃</div><div class="cn">長跑文化</div><div class="cd">國民運動，男女均高參與度，清晨五六點可見獨自跑步的南星人</div></div>
+    <div class="cc"><div class="ci">🍵</div><div class="cn">南強茶樓</div><div class="cd">本土龍頭，全時段粵式服務，社區公共客廳，南星最重要的社會生活場所</div></div>
+    <div class="cc"><div class="ci">🥩</div><div class="cn">Lambada</div><div class="cd">南美烤肉+西餐+咖啡廳，體現多元文化，首都及宋康鎮各一家</div></div>
+    <div class="cc"><div class="ci">🦜</div><div class="cn">鸚鵡花園</div><div class="cd">首都知名休閒地標，南星女性「務實的浪漫主義」的象徵空間</div></div>
+    <div class="cc"><div class="ci">🛒</div><div class="cn">南大 &amp; 昌大昌</div><div class="cd">本土超市雙雄，粵式食品比重高，街坊感強，各庄均設分店</div></div>
+  </div>
+  <p class="desc">主要物價：易拉罐可樂 8 NSY · 雲吞麵 30–40 NSY · 男士理髮 100–200 NSY。物價約為大陸的 2–3 倍，但工資溢價約 5 倍，實際購買力遠強於大陸。最低時薪工人工作約 5 分鐘即可支付一張電車票。</p>
+</div>
+
+<!-- 建设年表 -->
+<div class="sc" id="tab-history">
+  <h2>📅 城市建設年表</h2>
+  <div class="tl">
+    <div class="tl-i"><div class="tl-y">遊戲第 1 天</div><div class="tl-t">世界生成</div><div class="tl-d">原住民村落存在於東部湖濱，為首都最古老聚居地</div></div>
+    <div class="tl-i"><div class="tl-y">2023年 7–8月</div><div class="tl-t">第一期：東部湖濱區</div><div class="tl-d">市集、食肆、市政廳、小學、藏書室、銀行同期建立——藏書室與市政廳同開，奠定文教立國基調</div></div>
+    <div class="tl-i"><div class="tl-y">2023年 9月</div><div class="tl-t">第二期：西側沿海及填海區</div><div class="tl-d">書店、電車線路終點站、4–6層小型寫字樓與現代住宅落成，硬化道路鋪設</div></div>
+    <div class="tl-i"><div class="tl-y">2023年 11–12月</div><div class="tl-t">第三期：半島東段</div><div class="tl-d">火車兼電車站、海軍部、外交部（折衷主義風格，5層，並列而立），電車延伸至半島最西側</div></div>
+    <div class="tl-i"><div class="tl-y">2024年 11月</div><div class="tl-t">第四期：西城啓動</div><div class="tl-d">1911街（有電車）、星街，3座酒店、美術館、大型地下停車場，西城為首都最美麗的部分</div></div>
+    <div class="tl-i"><div class="tl-y">2026年 5月</div><div class="tl-t">青色大理石雙柱橋建成</div><div class="tl-d">西城跨河新橋落成，河對岸保持戰略留白，沿河保留狹窄樹林</div></div>
+    <div class="tl-i"><div class="tl-y">遊戲第 287 天</div><div class="tl-t">首都建設截圖存檔</div><div class="tl-d">城區九大街景存檔記錄，首都主體格局成形</div></div>
+    <div class="tl-i"><div class="tl-y">遊戲第 298 天</div><div class="tl-t">宋康鎮破土動工</div><div class="tl-d">首都最重要衛星城啓動，三面環水，背靠針葉林，右側搁浅沉船為城市起源符號</div></div>
+  </div>
+</div>
+
+<!-- 南星精神 -->
+<div class="sc" id="tab-spirit">
+  <h2>🌿 南星精神</h2>
+  <div class="mbti-grid">
+    <div class="mbti-item"><div class="mbti-letter">I</div><div class="mbti-label">內向 · 不在國際舞台高調，選擇性開放，主動權始終在自己手裡</div></div>
+    <div class="mbti-item"><div class="mbti-letter">N</div><div class="mbti-label">直覺 · 3萬人建4條電車，為50萬人口預埋基建，強烈前瞻性</div></div>
+    <div class="mbti-item"><div class="mbti-letter">T</div><div class="mbti-label">思考 · 語言測試可量化，排期制度數據驅動，罰款有邊界感</div></div>
+    <div class="mbti-item"><div class="mbti-letter">J</div><div class="mbti-label">判斷 · 移民有排期，交通有規劃，城市開發有先後，整體框架有序</div></div>
+  </div>
+  <p class="desc" style="margin-bottom:.9rem;">南星共和國是 <strong>INTJ（建築師型）</strong> 城邦——全球人口比例最低的人格類型之一，如同南星是全球極少數真正按自己價值觀建國的城邦，同樣稀有而清醒。</p>
+  <div class="spirit">
+    <p>南星共和國，是那個時代的廣東城市精神，搭上了一艘移民船，漂洋過海，在澳洲北部的熱帶陽光下，<span class="hl">重新開出的一朵花</span>。</p>
+    <p>這朵花，長得和原來不完全一樣——有南美烤肉，有 Apple Store，有瑞士級別的工資，有 INTJ 的制度理性——<span class="hl">但根，還是那根。騎樓下面的那根。</span></p>
+    <p>南星男人是逆水而上的龍舟手，認定了方向就不回頭，沉默但有力；南星女兒是沙灘上的晨跑者，獨立、爽利、務實，但在鸚鵡花園裡會為一隻鳥停下腳步。</p>
+    <p><span class="hl">他們都是移民的後代，骨子裡有一種已經抵達、不再漂泊的沉穩。</span>這片土地是他們選擇的，不是被分配的，所以他們格外珍惜，格外認真地活在這裡。</p>
+  </div>
+</div>
+
+<div class="footer">
+  🌟 南星共和國 (Nam Sing Republic) · 世界觀檔案<br>
+  澳洲北部飛地城邦 · Minecraft 理想城邦計劃
+</div>
+
+</div>
+<script>
+function showTab(id,btn){
+  document.querySelectorAll('.sc').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.tb').forEach(e=>e.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
